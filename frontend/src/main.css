@@ -1,0 +1,979 @@
+/**
+ * @author leonchaochan
+ * @email leonchaochan@outlook.com
+ * @create date 2017‎-01‎-‎12 ‏‎20:08:30
+ * @modify date 2017‎-0‎2-12 ‏‎15:50:00
+*/
+html {
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+    font-size: 16px;
+}
+body {
+    padding: 0.5rem;
+    margin: 0 auto;
+    background-color: #000;
+    color: #fff;
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
+    max-width: 75rem;
+}
+/*reset start*/
+*:focus {
+    outline: none;
+}
+textarea {
+    resize: vertical;
+}
+a, button{
+    color:#eee;
+}
+/*a:visited {
+    color:#eee;
+}*/
+a:hover {
+    color:#7D7D7D;
+}
+form {
+    margin: 0;
+}
+ol ul, ul ol, ul ul, ol ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+ol p:first-child, ul p:first-child {
+    margin-top: 0;
+}
+ol p:last-child, ul p:last-child {
+    margin-bottom: 0;
+}
+.aa {
+    font-family: Mona,'MS PGothic' !important;
+}
+a{
+    cursor: pointer;
+}
+/*reset end*/
+#appcontainer{
+    margin: 0 auto;
+}
+#header{
+    width: 100%;
+    height: 12.5rem;
+    border-bottom: .4rem solid #eee;
+}
+#nav{
+    position: relative;
+    width: 100%;
+    border-bottom: .1rem solid #eee;
+    height: 12rem;
+}
+.logosvg{
+    background: url(data:image/svg+xml,%3Csvg%20width%3D%222040%22%20height%3D%222040%22%20viewBox%3D%220%200%202040%202040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ctitle%3Elogo-durarara%3C%2Ftitle%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20fill%3D%22%23FFF%22%20cx%3D%221020%22%20cy%3D%221020%22%20r%3D%221020%22%2F%3E%3Ccircle%20fill%3D%22%23000%22%20cx%3D%221020%22%20cy%3D%221020%22%20r%3D%221000%22%2F%3E%3Ccircle%20fill%3D%22%23FFF%22%20cx%3D%221020%22%20cy%3D%221020%22%20r%3D%22905%22%2F%3E%3Ccircle%20fill%3D%22%23000%22%20cx%3D%221020%22%20cy%3D%221020%22%20r%3D%22845%22%2F%3E%3Cpath%20d%3D%22M464.08%20934c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87M342.08%201038.2c8.762%200%2015.865%207.11%2015.865%2015.872%200%208.763-7.103%2015.866-15.866%2015.866-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87m295.328%2071.825c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.764-7.103%2015.867-15.866%2015.867s-15.866-7.103-15.866-15.866%207.103-15.87%2015.866-15.87m37.674-141.29c8.762%200%2015.865%207.102%2015.865%2015.865s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.105-15.868-15.868s7.103-15.866%2015.866-15.866m66.842%2034.47c8.762%200%2015.865%207.103%2015.865%2015.866s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.103-15.868-15.866s7.103-15.866%2015.866-15.866M947.08%20934c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m37.722%20176.027c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.764-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87M1230.08%201038c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m36.002-70c8.762%200%2015.865%207.103%2015.865%2015.866s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.103-15.868-15.866S1257.316%20968%201266.08%20968m103%2069.938c8.762%200%2015.865%207.108%2015.865%2015.872%200%208.763-7.103%2015.865-15.866%2015.865-8.765%200-15.868-7.102-15.868-15.865%200-8.764%207.103-15.872%2015.866-15.872M1508.08%20934c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m-20.998%20139c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m88.002%200c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m139.002-35c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87M1608.08%20899c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87%22%20fill%3D%22%230FF%22%2F%3E%3Cpath%20d%3D%22M436.613%20899c8.763%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.102%2015.867-15.865%2015.867-8.764%200-15.866-7.102-15.866-15.866%200-8.76%207.102-15.87%2015.866-15.87m-37.283%20211.027c8.763%200%2015.865%207.108%2015.865%2015.87%200%208.764-7.102%2015.867-15.866%2015.867s-15.867-7.103-15.867-15.866%207.102-15.87%2015.865-15.87m131.565-106.558c8.763%200%2015.865%207.102%2015.865%2015.865s-7.102%2015.866-15.865%2015.866c-8.764%200-15.866-7.1-15.866-15.864s7.102-15.866%2015.866-15.866M675.613%20934c8.763%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.102%2015.867-15.865%2015.867-8.764%200-15.866-7.102-15.866-15.866%200-8.76%207.102-15.87%2015.866-15.87m66.307%20176.027c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.764-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87m149.495%200c8.763%200%2015.866%207.107%2015.866%2015.87%200%208.763-7.105%2015.866-15.868%2015.866-8.764%200-15.866-7.103-15.866-15.866s7.102-15.87%2015.866-15.87m56.2-37.028c8.764%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.102%2015.867-15.865%2015.867-8.764%200-15.866-7.102-15.866-15.866%200-8.76%207.102-15.87%2015.866-15.87m-.22-174c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.105%2015.867-15.868%2015.867-8.764%200-15.866-7.102-15.866-15.866%200-8.76%207.102-15.87%2015.866-15.87m247.22%2069c8.764%200%2015.866%207.103%2015.866%2015.866s-7.102%2015.866-15.865%2015.866c-8.764%200-15.866-7.103-15.866-15.866S1185.85%20968%201194.613%20968m-37%20142c8.763%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.102%2015.867-15.865%2015.867-8.764%200-15.866-7.102-15.866-15.866%200-8.76%207.102-15.87%2015.866-15.87m145-37c8.763%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.102%2015.867-15.865%2015.867-8.764%200-15.866-7.102-15.866-15.866%200-8.76%207.102-15.87%2015.866-15.87m67-70c8.763%200%2015.865%207.103%2015.865%2015.866s-7.102%2015.866-15.865%2015.866c-8.764%200-15.866-7.103-15.866-15.866s7.102-15.866%2015.866-15.866m33.187-104c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m66.815%20140c8.763%200%2015.865%207.103%2015.865%2015.866s-7.102%2015.866-15.865%2015.866c-8.764%200-15.866-7.103-15.866-15.866s7.102-15.866%2015.866-15.866m139-36c8.763%200%2015.865%207.103%2015.865%2015.866s-7.102%2015.866-15.865%2015.866c-8.764%200-15.866-7.103-15.866-15.866s7.102-15.866%2015.866-15.866m38.197-104c8.764%200%2015.867%207.108%2015.867%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.76%200-15.864-7.102-15.864-15.866%200-8.76%207.103-15.87%2015.866-15.87m-.002%20211c8.764%200%2015.867%207.108%2015.867%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.76%200-15.864-7.102-15.864-15.866%200-8.76%207.103-15.87%2015.866-15.87%22%20fill%3D%22%23FFA9EC%22%2F%3E%3Cg%20fill%3D%22%2398FAB8%22%3E%3Cpath%20d%3D%22M362.15%20899c8.764%200%2015.867%207.108%2015.867%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.76%200-15.864-7.102-15.864-15.866%200-8.76%207.103-15.87%2015.866-15.87m102.1%20139.2c8.764%200%2015.866%207.11%2015.866%2015.872%200%208.763-7.102%2015.866-15.865%2015.866-8.764%200-15.866-7.103-15.866-15.866s7.102-15.87%2015.866-15.87m-101.655%2071.825c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.764-7.103%2015.867-15.866%2015.867-8.764%200-15.866-7.103-15.866-15.866s7.102-15.87%2015.866-15.87M530.74%201073c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m144.542-69.53c8.762%200%2015.865%207.102%2015.865%2015.865s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.1-15.868-15.864s7.103-15.866%2015.866-15.866M741.74%20934c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m74.062%20176.027c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.764-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87m131.595-72.09c8.763%200%2015.866%207.108%2015.866%2015.872%200%208.763-7.105%2015.865-15.868%2015.865-8.764%200-15.866-7.102-15.866-15.865%200-8.764%207.102-15.872%2015.866-15.872m150.494%2072.09c8.763%200%2015.866%207.107%2015.866%2015.87%200%208.763-7.103%2015.866-15.866%2015.866s-15.866-7.103-15.866-15.866%207.103-15.87%2015.866-15.87M1157.74%201038c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m90.002-104c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m122.002-35c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m67.002%20104c8.762%200%2015.865%207.103%2015.865%2015.866s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.103-15.868-15.866s7.103-15.866%2015.866-15.866m-66.998%2069.675c8.762%200%2015.865%207.11%2015.865%2015.872%200%208.763-7.103%2015.866-15.866%2015.866-8.765%200-15.868-7.103-15.868-15.866s7.103-15.872%2015.866-15.872M1574.74%20968c8.762%200%2015.865%207.103%2015.865%2015.866s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.103-15.868-15.866S1565.976%20968%201574.74%20968m111-69c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m.002%20211c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23F9FF70%22%3E%3Cpath%20d%3D%22M342.08%20934c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m122.175%2069.47c8.763%200%2015.865%207.102%2015.865%2015.865s-7.102%2015.866-15.865%2015.866c-8.764%200-15.866-7.1-15.866-15.864s7.102-15.866%2015.866-15.866M600.943%20899c8.764%200%2015.867%207.108%2015.867%2015.87%200%208.765-7.103%2015.867-15.866%2015.867s-15.866-7.102-15.866-15.866c0-8.76%207.103-15.87%2015.866-15.87m-35.73%20211.027c8.762%200%2015.864%207.108%2015.864%2015.87%200%208.764-7.102%2015.867-15.865%2015.867-8.764%200-15.866-7.103-15.866-15.866s7.102-15.87%2015.866-15.87m176.707-72.09c8.762%200%2015.865%207.108%2015.865%2015.872%200%208.763-7.103%2015.865-15.866%2015.865-8.765%200-15.868-7.102-15.868-15.865%200-8.764%207.103-15.872%2015.866-15.872m110.882%2072.09c8.762%200%2015.865%207.107%2015.865%2015.87%200%208.763-7.103%2015.866-15.866%2015.866-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87M947.08%20968c8.762%200%2015.865%207.103%2015.865%2015.866s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.103-15.868-15.866S938.316%20968%20947.08%20968m74.72%20142.027c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.764-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87M1158.08%201073c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m54.002-139c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m91.002%20104c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m66.002-69.525c8.762%200%2015.865%207.102%2015.865%2015.865%200%208.764-7.103%2015.866-15.866%2015.866-8.765%200-15.868-7.102-15.868-15.866%200-8.763%207.103-15.865%2015.866-15.865M1469.406%20899c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867s-15.866-7.102-15.866-15.866c0-8.76%207.103-15.87%2015.866-15.87m38.874%20211.027c8.763%200%2015.865%207.108%2015.865%2015.87%200%208.764-7.102%2015.867-15.866%2015.867s-15.867-7.103-15.867-15.866%207.102-15.87%2015.865-15.87M1575.08%20934c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m111.002%2069c8.762%200%2015.865%207.103%2015.865%2015.866s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.103-15.868-15.866s7.103-15.866%2015.866-15.866m-77.998%20107c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23FFF%22%3E%3Cpath%20d%3D%22M325.866%20899c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S310%20923.635%20310%20914.87c0-8.762%207.103-15.87%2015.866-15.87m73.017%200c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.105%2015.867-15.868%2015.867s-15.866-7.102-15.866-15.866c0-8.76%207.103-15.87%2015.866-15.87m-57.016%2069.737c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866S326%20993.364%20326%20984.6s7.103-15.866%2015.866-15.866m.214%2034.734c8.762%200%2015.865%207.102%2015.865%2015.865s-7.103%2015.866-15.866%2015.866c-8.765%200-15.868-7.1-15.868-15.864s7.103-15.866%2015.866-15.866m-.212%2069.53c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S326%201097.635%20326%201088.87c0-8.762%207.103-15.87%2015.866-15.87m-16%2037c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S310%201134.635%20310%201125.87c0-8.762%207.103-15.87%2015.866-15.87m111%200c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S421%201134.635%20421%201125.87c0-8.762%207.103-15.87%2015.866-15.87m27-37c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S448%201097.635%20448%201088.87c0-8.762%207.103-15.87%2015.866-15.87m0-104.263c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866S448%20993.364%20448%20984.6s7.103-15.866%2015.866-15.866m67-34.736c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S515%20958.635%20515%20949.87c0-8.762%207.103-15.87%2015.866-15.87m0%2034.737c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866S515%20993.364%20515%20984.6s7.103-15.866%2015.866-15.866m.027%2069.464c8.763%200%2015.865%207.11%2015.865%2015.872%200%208.763-7.102%2015.866-15.865%2015.866-8.764%200-15.866-7.103-15.866-15.866s7.102-15.87%2015.866-15.87m70.05%2071.825c8.764%200%2015.867%207.108%2015.867%2015.87%200%208.764-7.103%2015.867-15.866%2015.867s-15.866-7.103-15.866-15.866%207.103-15.87%2015.866-15.87M674.866%201073c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S659%201097.635%20659%201088.87c0-8.762%207.103-15.87%2015.866-15.87m.414-34.8c8.762%200%2015.865%207.11%2015.865%2015.872%200%208.763-7.103%2015.866-15.866%2015.866-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87M637.406%20899c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867s-15.866-7.102-15.866-15.866c0-8.76%207.103-15.87%2015.866-15.87m-72.193%200c8.763%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.102%2015.867-15.865%2015.867-8.764%200-15.866-7.102-15.866-15.866%200-8.76%207.102-15.87%2015.866-15.87m176.707%200c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m-.052%2069c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866S726%20992.63%20726%20983.866%20733.103%20968%20741.866%20968m0%20105c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S726%201097.635%20726%201088.87c0-8.762%207.103-15.87%2015.866-15.87m36.934%2037.027c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.764-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87M947.866%201003c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866S932%201027.63%20932%201018.866%20939.103%201003%20947.866%201003m-.473%20107.027c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.764-7.105%2015.867-15.868%2015.867-8.764%200-15.866-7.103-15.866-15.866s7.102-15.87%2015.866-15.87m111.408%200c8.762%200%2015.865%207.107%2015.865%2015.87%200%208.763-7.103%2015.866-15.866%2015.866-8.765%200-15.868-7.103-15.868-15.866s7.103-15.87%2015.866-15.87M1175.866%201003c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866-15.866-7.103-15.866-15.866%207.103-15.866%2015.866-15.866m17.874%2034.833c8.763%200%2015.865%207.11%2015.865%2015.872%200%208.763-7.102%2015.866-15.866%2015.866s-15.868-7.1-15.868-15.864%207.103-15.872%2015.866-15.872m73.195%200c8.763%200%2015.866%207.11%2015.866%2015.87%200%208.764-7.105%2015.867-15.868%2015.867s-15.866-7.1-15.866-15.864%207.103-15.872%2015.866-15.872M1229.866%20899c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S1214%20923.635%201214%20914.87c0-8.762%207.103-15.87%2015.866-15.87m55%20104c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866-15.866-7.103-15.866-15.866%207.103-15.866%2015.866-15.866m18%20107c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S1287%201134.635%201287%201125.87c0-8.762%207.103-15.87%2015.866-15.87m67%200c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S1354%201134.635%201354%201125.87c0-8.762%207.103-15.87%2015.866-15.87m0-176.263c8.763%200%2015.866%207.11%2015.866%2015.872s-7.103%2015.864-15.866%2015.864S1354%20958.372%201354%20949.61c0-8.764%207.103-15.873%2015.866-15.873M1435.8%20899c8.762%200%2015.865%207.108%2015.865%2015.87%200%208.765-7.103%2015.867-15.866%2015.867-8.765%200-15.868-7.102-15.868-15.866%200-8.76%207.103-15.87%2015.866-15.87m-32.932%20104c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866-15.866-7.103-15.866-15.866%207.103-15.866%2015.866-15.866m67%200c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866-15.866-7.103-15.866-15.866%207.103-15.866%2015.866-15.866m38-35c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866S1492%20992.63%201492%20983.866%201499.103%20968%201507.866%20968m206-34c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S1698%20958.635%201698%20949.87c0-8.762%207.103-15.87%2015.866-15.87m-67%2069c8.763%200%2015.866%207.103%2015.866%2015.866s-7.103%2015.866-15.866%2015.866-15.866-7.103-15.866-15.866%207.103-15.866%2015.866-15.866m67%2070c8.763%200%2015.866%207.108%2015.866%2015.87%200%208.765-7.103%2015.867-15.866%2015.867S1698%201097.635%201698%201088.87c0-8.762%207.103-15.87%2015.866-15.87%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E) no-repeat;
+    background-size: contain;
+}
+#logo{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 9.375rem;
+    height: 9.375rem;
+    text-indent: -99999rem;
+}
+.user{
+    position: absolute;
+    right: 1rem;;
+    top: 1rem;
+    font-size: .8rem;
+}
+#headernav {
+    position: absolute;
+    top: 10.3rem;
+    left: 9rem;
+    margin: 0;
+}
+#headernav li {
+    display: inline;
+    font-weight: bold;
+    margin: 0 1.5625rem 0 0;
+    padding: 0;
+}
+#headernav a {
+    color: #FFFFFF;
+    padding: 10px 15px 7px 10px;
+    text-decoration: none;
+}
+#headernav a:hover {
+    color: #7D7D7D;
+}
+
+
+
+
+.outerbox, .backlogpage #threads {
+    background-color: #000;
+    color: #eee;
+    padding: .25rem;
+}
+h1 {
+    color: #eee;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0;
+    margin: 0 0 0 .9375rem;
+}
+.threadpage h1 {
+    margin: 0 0 0 .9375rem;
+}
+#navbox {
+    position: relative;
+    border-radius: .375rem .375rem 0 0;
+}
+#navbox{
+    border-bottom: .25rem solid #eee;
+    padding-bottom: .0625rem;
+}
+#navbox .threadnavigation,#user {
+    position: absolute;
+    right: .75rem;
+    top: .25rem;
+    float: right;
+}
+#navbox div>.threadnavigation {
+    right: .25rem;
+}
+#headerMessage {
+    position: absolute;
+    top: .625rem;
+    margin-left: 12.1875rem;
+    font-size: 0.75rem;
+    z-index: 1;
+}
+#membercount {
+    margin-top: 8.75rem;
+    margin-left: 60rem;
+    position: absolute;
+    padding: 0;
+    width: 14.375rem;
+    z-index: 1;
+}
+#membercount span {
+    border: .0625rem solid #fff;
+    letter-spacing: 5px;
+    margin-left: 5px;
+    padding-left: 5px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+}
+
+#stylebox {
+    padding: 1px 9px;
+    margin: -1px 0;
+}
+#boardmenu {
+    float: left;
+    text-align: center;
+    width: 180px;
+}
+.mainbutton {
+    display: inline-block;
+    border: .125rem solid #eee;
+    background-color: #151515;
+    padding: .3125rem 3.25rem;
+    text-decoration: none;
+    border-radius: .4375rem;
+    margin-bottom: .25rem;
+}
+#threadlinks {
+    border-bottom: .0625rem solid #EEEEEE;
+    height: 0;
+    text-align: right;
+    margin-bottom: 5px;
+    padding-bottom: 12px;
+}
+#threadlinks a {
+    font-size: 10pt;
+    margin-right: 0;
+    text-decoration: none;
+    visibility: hidden;
+}
+#createbox {
+    margin-right: 300px;
+    margin-left: 180px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+#createbox h2 {
+    background-color: #000000;
+    font-size: 1.2em;
+    color: #EEEEEE;
+    font-weight: bold;
+    margin: 0px 0px .3em 1em;
+    padding: 0px;
+}
+#createbox form {
+    background-color: #252525;
+    color: #EEEEEE;
+    font-weight: bold;
+    font-size: .8em;
+    margin: 3px;
+    padding: 3px;
+    -moz-border-radius: 0 5px 5px 5px;
+    -webkit-border-radius: 0 5px 5px 5px;
+    border-radius: 0 5px 5px 5px;
+    font-weight: bold;
+}
+#createbox input, #createbox textarea {
+    background-color: #EEEEEE;
+    border-top: 1px solid #49525D;
+    border-bottom: 1px solid #B6C2CF;
+    border-left: 1px solid #49525D;
+    border-right: 1px solid #B6C2CF;
+}
+#createbox input[type=submit], #createbox input[type=button] {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+#createbox input[type=file] {
+    background-color: #252525;
+    border: none;
+}
+#createbox textarea {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+#createbox .innerbox a {
+    background-color: #252525;
+    color: #EEEEEE;
+    font-weight: bold;
+    font-size: .8em;
+    margin: 3px;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    padding: 7px;
+    text-decoration: none;
+}
+#createbox .innerbox a:hover {
+    color: #EEEEEE;
+}
+#createbox .innerbox a:active {
+    color: #FFFFFF;
+}
+.threadcaptcha {
+    color: #FFFFFF;
+}
+
+
+#sidebar {
+    position: relative;
+    float: right;
+    margin-top: 5px;
+    text-align: center;
+    width: 17.1875rem;
+}
+#createthread,
+#allthreads {
+    border: 2px solid #EEEEEE;
+    background-color: #151515;
+    text-decoration: none;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+}
+.mainbutton:hover,
+#createthread:hover,
+#allthreads:hover {
+    background-color: #4D4D4D;
+    color: #FFFFFF
+}
+#sidebar img {
+    border: 1px solid #EEEEEE;
+    margin-top: 10px;
+    padding: 5px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+#createthread {
+    padding: 5px 16px;
+}
+#allthreads {
+    padding: 5px 24px;
+}
+#bycountry {
+    padding: 5px 45px;
+}
+
+#posts {
+    float: left;
+    width: 45rem;
+}
+#posts .thread {
+    padding: 4px;
+    margin-bottom: 15px;
+    clear: both;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+#posts .sagethread
+{
+    background-color: #000000;
+    padding: 4px;
+    margin-bottom: 2em;
+    clear: both;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+#posts h2 {
+    float: left;
+    background-color: inherit;
+    font-size: 1.2em;
+    color: #EEEEEE;
+    font-weight: bold;
+    margin: 0px 0px .3em 1em;
+    padding: 0px;
+}
+#posts h2 a {
+    color: #EEEEEE;
+    text-decoration: none;
+}
+#posts h2 a:hover {
+    text-decoration: underline;
+}
+#posts h2 small {
+    font-weight: normal;
+    font-size: .7em;
+}
+#posts .threadnavigation {
+    float: right;
+}
+.threadnavigation a {
+    text-decoration: none;
+    font-weight: bold;
+}
+.threadnavigation img {
+    border: none;
+}
+#posts .replies {
+    clear: both;
+}
+#posts .firstreply {
+    background-color: #181818;
+    color: #fff;
+    font-size: .8em;
+    margin: 3px 3px -6px;
+    padding: 15px 15px 0 15px;
+    border-top: 2px solid #EEEEEE;
+    border-right: 2px solid #EEEEEE;
+    border-left: 2px solid #EEEEEE;
+    -moz-border-radius: 7px 7px 0 0;
+    -webkit-border-radius: 7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
+}
+#posts .finalreplies {
+    background-color: #181818;
+    color: #FFFFFF;
+    font-size: .8em;
+    margin: 3px;
+    padding: 5px 15px 15px 15px;
+    border-right: 2px solid #EEEEEE;
+    border-bottom: 2px solid #EEEEEE;
+    border-left: 2px solid #EEEEEE;
+    -moz-border-radius: 0 0 7px 7px;
+    -webkit-border-radius: 0 0 7px 7px;
+    border-radius: 0 0 7px 7px;
+}
+#posts .allreplies {
+    background-color: #181818;
+    color: #FFFFFF;
+    font-size: .8em;
+    margin: 3px;
+    padding: 15px;
+    border: 2px solid #EEEEEE;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+}
+
+#posts .allreplies a:hover, #posts .firstreply a:hover, #posts .finalreplies a:hover {
+    color: #7D7D7D;
+}
+
+#posts .firstreply .reply {
+    background-color: #181818;
+    border: none;
+    margin: 5px 35px;
+    padding: 3px;
+}
+#posts .reply {
+    background-color: #4D4D4D;
+    border: 1px solid #FFFFFF;
+    clear: both;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    margin: 5px 35px;
+    padding: 3px;
+}
+#posts .deletedreply {
+    background-color: #4D4D4D;
+    border: 1px solid #FFFFFF;
+    clear: both;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    margin: 5px 35px;
+    padding: 3px;
+}
+#posts h3 {
+    font-size: 1em;
+    color: #EEEEEE;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
+}
+#posts .deletedreply h3 {
+    color: #AFAFAF;
+    font-weight: bold;
+}
+#posts h3 .replynum {
+    color: #999999;
+    font-weight: bold;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+}
+#posts h3 .replynum a:hover {
+    color:#999;
+}
+#posts h3 .postername {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#posts h3 .postertrip {
+    color: #FFFFFF;
+    font-style: italic;
+    font-size: 1.2em;
+}
+#posts img.thumb, #posts a img {
+    border: 1px solid #AAAAAA;
+    margin: 10px 25px 0 45px;
+}
+#posts .nothumbnail {
+    display: inline; 
+    background: #eeeeee;
+    border: 2px dashed #cccccc;
+    text-align: center;
+    padding: 1em 0.5em 1em 0.5em;
+    margin: 0.5em 2em 0.5em 2em;
+}
+.replytext > :first-child {
+    margin-top: 0em;
+}
+.replytext > :last-child {
+    margin-bottom: 0em;
+}
+.replytext:after {
+    content: "";
+    display: block;
+    height: 0.1px;
+    clear: both;
+    margin: 0px;
+}
+.firstreply .replytext {
+    padding: .625rem 1.5625rem .4rem .9375rem;
+
+}
+.replytext {
+    padding: 10px 25px 25px 47px;
+}
+.replytext blockquote {
+    margin-left: 0em;
+    color: #697685;
+}
+#posts .replyabbrev {
+    color: #71DFF8;
+    margin-left: 35px;
+    padding: 3px;
+}
+#posts .form {
+    background-color: #252525;
+    width: 41.3rem;
+    color: #EEEEEE;
+    font-weight: bold;
+    font-size: .8em;
+    margin: 3px;
+    padding: 3px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+#createbox form a:link {
+    color: #777777;
+    margin-right: 5px;
+}
+#posts .form a:hover, #createbox form a:hover {
+    color: #EEEEEE;
+}
+#posts .form a:active, #createbox form a:active {
+    color: #FFFFFF;
+}
+#posts input, #posts textarea {
+    background-color: #EEEEEE;
+    border-top: 1px solid #49525D;
+    border-bottom: 1px solid #B6C2CF;
+    border-left: 1px solid #49525D;
+    border-right: 1px solid #B6C2CF;
+}
+#posts textarea {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+#posts input[type=submit], #posts input[type=button] {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+#posts input[type=file] {
+    background-color: #252525;
+    border: none;
+}
+#posts .form .replytext, #createbox form .replytext {
+    margin: 0.5em 0;
+    color: #000080;
+    font-weight: normal;
+    border: 6px solid #DDDDDD;
+}
+.postcaptcha {
+    color: #FFFFFF;
+}
+
+
+
+#navigation {
+    margin: 0.3em 0.3em 1em 1em;
+    font-size: small;
+    float: left;
+    white-space: nowrap;
+    background-color: #49525D;
+    padding: 3px 0px 3px 0px;
+    border: 1px solid #49525D;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+#navigation strong {
+    background-color: #49525D;
+    padding: 3px;
+    color: #EEEEEE;
+    font-weight: bold;
+}
+
+#navigation a {
+    padding: 3px;
+}
+#oldthreadlist {
+    width: 720px;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: serif;
+    padding: 6px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin: 30px auto;
+}
+#oldthreadlist a {
+    color: #151515;
+}
+#oldthreadlist a:hover {
+    color:#555555;
+}
+#oldthreadlist th {
+    text-align: left;
+}
+#oldthreadlist .line0 {
+    background: #FFFFFF;
+}
+#oldthreadlist .line1 {
+    background: #DDDDDD;
+}
+#oldthreadlist a {
+    display: block;
+}
+
+
+
+#footer {
+    clear: both;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+
+
+#errorcontent {
+
+}
+#errorcontent h1, h2 {
+    text-align: center;
+}
+#menus_media{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top:0.1rem;
+    left: 0.3rem;
+    display: none;
+    background-color: #000;
+    height: 25px;
+    width: 30px;
+    z-index: 2;
+    border-radius: 5px;
+    border: 2px solid #eee;
+}
+.menu_media{
+    display: none;
+    list-style: none;
+}
+#dtitle{
+    position: relative;
+    top:0.4rem;
+    left: 12rem;
+    /*text-align: center;*/
+    font-size: 28px;
+    width: 100px;
+    z-index: 2;
+    display: none;
+}
+/*reset*/
+/*@media (max-width: 768px) and (min-width: 650px) {
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    #sidebar,.threadnavigation,#createbox{
+        display: none;
+    }
+    #boardmenu{
+        width: 90px;
+    }
+    .mainbutton{
+        padding: 5px 19px;
+        margin-bottom: 6px;
+    }
+    #headernav{
+        background-color: #000;
+        margin: 4px 0 0 40px;
+        left: 7rem;
+    }
+    .innerbox{
+        margin-top: 15px;
+        width: 100%;
+    }
+    #posts,#threadbox{
+        width: 660px;
+    }
+}
+@media (max-width: 650px){
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    #boardmenu,#headernav,#sidebar,.threadnavigation,#createbox{
+        display: none;
+    }
+    .innerbox{
+        margin-top: 30px;
+    }
+    .innerbox.top{
+        margin-top: 0px;
+        width: 80%;
+    }
+    #posts,#threadbox{
+        clear: both;
+        display: block;
+    }
+    #dtitle{
+        display: block;
+        margin: 0;
+    }
+}*/
+#contentarea{
+    margin-left: .5625rem;
+    float: left;
+    width: 45rem;
+    line-height: 1.5625rem;
+}
+@-webkit-keyframes rotate_pacman_half_up {
+  0% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg); }
+
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); }
+
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg); } }
+
+@keyframes rotate_pacman_half_up {
+  0% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg); }
+
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); }
+
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg); } }
+
+@-webkit-keyframes rotate_pacman_half_down {
+  0% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); }
+
+  50% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); } }
+
+@keyframes rotate_pacman_half_down {
+  0% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); }
+
+  50% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); } }
+
+@-webkit-keyframes pacman-balls {
+  75% {
+    opacity: 0.7; 
+    }
+
+  100% {
+    -webkit-transform: translate(-100px, -6.25px);
+            transform: translate(-100px, -6.25px); } }
+
+@keyframes pacman-balls {
+  75% {
+    opacity: 0.7; }
+
+  100% {
+    -webkit-transform: translate(-100px, -6.25px);
+            transform: translate(-100px, -6.25px); } }
+
+.pacman {
+  position: relative; 
+}
+.pacman > div:nth-child(2) {
+-webkit-animation: pacman-balls 1s 0s infinite linear;
+        animation: pacman-balls 1s 0s infinite linear; 
+}
+.pacman > div:nth-child(3) {
+-webkit-animation: pacman-balls 1s 0.33s infinite linear;
+        animation: pacman-balls 1s 0.33s infinite linear; 
+}
+.pacman > div:nth-child(4) {
+-webkit-animation: pacman-balls 1s 0.66s infinite linear;
+        animation: pacman-balls 1s 0.66s infinite linear; 
+}
+.pacman > div:nth-child(5) {
+    -webkit-animation: pacman-balls 1s 0.99s infinite linear;
+            animation: pacman-balls 1s 0.99s infinite linear; 
+}
+.pacman > div:first-of-type {
+    width: 0px;
+    height: 0px;
+    border-right: 25px solid transparent;
+    border-left: 25px solid #fff;
+    border-top: 25px solid #fff;
+    border-left: 25px solid #fff;
+    border-bottom: 25px solid #fff;
+    border-radius: 25px;
+    -webkit-animation: rotate_pacman_half_up 0.5s 0s infinite;
+            animation: rotate_pacman_half_up 0.5s 0s infinite;
+}
+.pacman > div:nth-child(2) {
+    width: 0px;
+    height: 0px;
+    border-right: 25px solid transparent;
+    border-top: 25px solid #fff;
+    border-left: 25px solid #fff;
+    border-bottom: 25px solid #fff;
+    border-radius: 25px;
+    -webkit-animation: rotate_pacman_half_down 0.5s 0s infinite;
+            animation: rotate_pacman_half_down 0.5s 0s infinite;
+    margin-top: -50px; 
+}
+.pacman > div:nth-child(3), .pacman > div:nth-child(4), .pacman > div:nth-child(5), .pacman > div:nth-child(6) {
+    background-color: #fff;
+    width: .9375rem;
+    height: .9375rem;
+    border-radius: 100%;
+    margin: .125rem;
+    width: .625rem;
+    height: .625rem;
+    position: absolute;
+    -webkit-transform: translate(0, -6.25px);
+    -ms-transform: translate(0, -6.25px);
+        transform: translate(0, -6.25px);
+    top: 1.5625rem;
+    left: 6.25rem; 
+}
+.thread-ready{
+    position: relative;
+    height: 19rem;
+    padding: .25rem;
+    margin-bottom: .9375rem;
+    clear: both;
+    border-radius: .375rem;
+}
+.thread-ready>h2{
+    margin-top: 0;
+    padding: 0;
+    position: absolute;
+    width: 6rem;
+    height: 1.375rem;
+    background: #4d4d4d;
+    top: 0;
+    left: 1rem;
+}
+.a-ready{
+    position: absolute;
+    display: inline-block;
+    height: .8rem;
+    width: 3rem;
+    top: .5rem;
+    left: 7.3rem;
+}
+.replies-ready{
+    position: absolute;
+    width: 44.1875rem;
+    height: 17rem;
+    border: .125rem solid #4d4d4d;
+    top: 2rem;
+    background: #181818;
+    border-radius: .4375rem;
+}
+.poster-ready{
+    margin: 1.8125rem auto 1.4375rem 3.625rem;
+    width: 6rem;
+    height: 1.5rem;
+}
+.poster-ready>span{
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #4d4d4d;
+}
+.content-ready{
+    width: 35.4575rem;
+    height: 1rem;
+    margin: 1rem auto 1rem 3.625rem;
+}
+.thread-ready>h2,.a-ready,.reply-ready,.poster-ready,.content-ready,.form-ready
+{
+    border-radius: 0.2rem;
+    background: #4d4d4d;
+}
+/*登录*/
+.u-control{
+  position: relative;
+  width: 20rem;
+  margin: 1rem auto;
+  padding: .5rem 0;
+}
+.u-control:last-child{
+  text-align: center;
+  margin-top: 2rem;
+}
+.u-label{
+  display: inline-block;
+  text-align: right;
+  width: 5rem;
+}
+.u-input{
+  margin: 0 auto;
+  border: none;
+  font-size: 1rem;
+  border-radius: .5rem;
+  text-indent: .5rem;
+  line-height: 1.4rem;
+  font-weight: bold;
+}
+.u-input[type="password"]{
+  letter-spacing: .2rem;
+}
+.captcha{
+  width: 5rem;
+}
+.u-submit{
+  border: .2rem solid #777;
+  background: #4d4d4d;
+  padding: .3rem 2rem;
+  border-radius: .5rem;
+}
+.u-submit:active{
+  background: #181818;
+}
+.u-captcha{
+  position: absolute;
+  top: -.7rem;
+}
+.u-error{
+  position: absolute;
+  top: 4rem;
+  left: 10.5rem;
+  padding: .2rem 1rem;
+  width: 12rem;
+  text-align: center;
+  background: #252525;
+  border-radius: .3rem;
+  font-size: .8rem;
+}
+.u-control:first-child{
+  margin-top: 4rem;
+}
+.rl-dialog.register{
+    top: 4.5rem;
+    height: 30rem;
+}
+.tip{
+    margin-left: .5rem;
+}
+.getmore{
+    margin: 0rem 0rem 1rem .4rem;
+    min-width: 44.3rem;
+    padding: .5rem 0rem;
+    border-radius: .4rem;
+    background-color: #252525;
+    border: none;
+    font-family: 'Microsoft YaHei'
+}
+.getmore.no{
+    color: #7d7d7d
+}
+
+.type{
+    color: #7d7d7d;
+}

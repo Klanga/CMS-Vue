@@ -1,0 +1,33 @@
+{
+  "name": "dollars-backend",
+  "version": "1.0.0",
+  "author": "leonchaochan",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "connect-history-api-fallback": "^1.1.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.1",
+    "debug": "~2.2.0",
+    "dotenv": "^4.0.0",
+    "ejs-mate": "^2.3.0",
+    "express": "~4.14.0",
+    "express-jwt": "^5.1.0",
+    "express-session": "^1.14.2",
+    "hashids": "^1.1.1",
+    "http-proxy-middleware": "^0.17.2",
+    "jsonwebtoken": "^7.2.1",
+    "jwt-simple": "^0.5.1",
+    "mongolass": "^2.4.1",
+    "mongoose": "^4.7.7",
+    "morgan": "~1.7.0",
+    "mpromise": "^0.5.5",
+    "nodemailer": "^2.7.0",
+    "pug": "^2.0.0-beta6",
+    "redis": "^2.6.5",
+    "serve-favicon": "~2.3.0"
+  }
+}
